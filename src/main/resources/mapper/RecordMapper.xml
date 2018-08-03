@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sushuzhuang.myblogs.mapper.RecordMapper">
+    <resultMap id="BaseResultMap" type="com.sushuzhuang.myblogs.domain.Record">
+        <result column="id" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="img" jdbcType="VARCHAR" property="img"/>
+        <result column="read_amount" property="readAmount"/>
+        <result column="publish_date" jdbcType="TIMESTAMP" property="publishDate"/>
+        <result column="context" property="context"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, title, tag, img, read_amount, publish_date,context
+  </sql>
+    <select id="loadAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from record
+        order by id
+    </select>
+
+    <update id="increaseReadAmount"  parameterType="com.sushuzhuang.myblogs.domain.Record">
+        update record
+        set
+            id=#{id}
+        <if test="title !=null">
+            ,title=#{title}
+        </if>
+        <if test="tag !=null">
+           , tag=#{tag }
+        </if>
+        <if test="context !=null">
+            ,context=#{context}
+        </if>
+        <if test="img !=null">
+           , img=#{img }
+        </if>
+        <if test="readAmount !=null">
+           , read_amount=#{readAmount }
+        </if>
+        <if test="publishDate !=null">
+            ,publish_date=#{publishDate }
+        </if>
+        where id=#{id}
+    </update>
+
+</mapper>
