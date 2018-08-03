@@ -87,13 +87,13 @@
 <article>
 <div class="blogs" id="blogs">
     <li v-for="records in list">
-        <span class="blogpic"><a href="javascript:void(0);" @click="increaseReadAmount(records.readAmount,records.id)"><img :src="records.img"></a></span>
-        <h3 class="blogtitle"><a href="javascript:void(0);" @click="increaseReadAmount(records.readAmount,records.id)">{{records.title}}</a></h3>
+        <span class="blogpic"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)"><img :src="records.img"></a></span>
+        <h3 class="blogtitle"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">{{records.title}}</a></h3>
         <div class="bloginfo">  <p>{{records.context}}</p></div>
         <div class="autor"><span class="lm"><a href="javascript:void(0);" class="classname" >{{records.tag}}</a></span>
             <span class="dtime">{{records.showDate}}</span>
             <span class="viewnum">浏览（<a href="javascript:void(0);">{{records.readAmount}}</a>）</span>
-            <span class="readmore"><a href="javascript:void(0);" @click="increaseReadAmount(records.readAmount,records.id)">阅读原文</a></span>
+            <span class="readmore"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">阅读原文</a></span>
         </div>
     </li>
 
@@ -107,7 +107,7 @@
             <div class="abtext"> 一个90后草根站长！15年入行。 </div>
         </div>
         <div class="search">
-            <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+            <form action="" method="post" name="searchform" id="searchform">
                 <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
                 <input name="show" value="title" type="hidden">
                 <input name="tempid" value="1" type="hidden">
