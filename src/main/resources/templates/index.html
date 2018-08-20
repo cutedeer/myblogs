@@ -133,7 +133,7 @@
         },
         methods: {
             showDetails: function () {
-                axios.get('http://localhost:8080/record/all',{})
+                axios.get('http://localhost:8080/myblogs/record/all',{})
                     .then(function (response) {
                         for(var i=0;i<response.data.length;i++){
                             v.$set(v.list,i,response.data[i])
@@ -147,7 +147,7 @@
             },
             increaseReadAmount:function(amount,id) {
                 ++amount;
-                axios.post('http://localhost:8080/record/read/amount', {
+                axios.post('http://localhost:8080/myblogs/record/read/amount', {
                     id: id,
                     readAmount: amount
                 })

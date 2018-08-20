@@ -135,7 +135,7 @@ window.onload = function ()
         },
         methods: {
             showDetails: function () {
-                axios.get('http://localhost:8080/share/tag?tag=love',{})
+                axios.get('http://localhost:8080/myblogs/share/tag?tag=love',{})
                     .then(function (response) {
                         console.log(response.data)
                         for(var i=0;i<response.data.length;i++){
@@ -150,7 +150,7 @@ window.onload = function ()
             },
             increaseReadAmount:function(amount,id) {
                 ++amount;
-                axios.post('http://localhost:8080/record/read/amount', {
+                axios.post('http://localhost:8080/myblogs/record/read/amount', {
                     id: id,
                     readAmount: amount
                 })
