@@ -1,8 +1,9 @@
 package com.sushuzhuang.myblogs.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Share {
+public class Share implements Serializable {
     private Integer id;
 
     private String title;
@@ -20,6 +21,8 @@ public class Share {
     private String context;
 
     private  String intro;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
