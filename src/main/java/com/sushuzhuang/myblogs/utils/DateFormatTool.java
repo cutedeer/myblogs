@@ -10,7 +10,7 @@ import java.util.Date;
 @Component
 public class DateFormatTool {
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
 
     public  String format(Date date) {
         return  simpleDateFormat.format(date);
