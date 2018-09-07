@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>模板分享_杨青个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,杨青个人博客,个人博客模板,杨青" />
+<meta name="description" content="杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/base.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<link href="css/m.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+
+  <!-- jquery, bootstrap -->
+  <script src="js/jquery.js"></script>
+  <script src="bootstrap/bootstrap.js"></script>
+
+  <!-- add summernote -->
+  <link href="summernote/summernote.css" rel="stylesheet">
+  <script src="summernote/summernote.js"></script>
+  <script src="summernote/summernote-zh-CN.js"></script>
+</head>
+<body>
+<header>
+  <div class="tophead">
+   <div class="logo"><a href="/">苏树壮个人博客</a></div>
+    <div id="mnav">
+      <h2><span class="navicon"></span></h2>
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="share.html">生活分享</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">慢生活</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="share.html">生活分享</a></li>
+        <li><a href="list.html">学无止境</a></li>
+        <li><a href="info.html">慢生活</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article>
+  <h1 class="t_nav"><span>好咖啡要和朋友一起品尝，好“模板”也要和同样喜欢它的人一起分享。 </span><a href="/" class="n1">网站首页</a><a href="/" class="n2">模板分享</a></h1>
+  <div class="picbox">
+     </div>
+  <div class="sidebar">
+
+    <div class="lmnav">
+      <h2 class="hometitle">栏目导航</h2>
+      <ul class="navbor">
+        <li><a href="#">关于我</a></li>
+        <li><a href="share.html">模板分享</a>
+          <ul>
+            <li><a href="list.html">个人博客模板</a></li>
+            <li><a href="#">HTML5模板</a></li>
+          </ul>
+        </li>
+        <li><a href="list.html">学无止境</a>
+          <ul>
+            <li><a href="list.html">学习笔记</a></li>
+            <li><a href="#">HTML5+CSS3</a></li>
+            <li><a href="#">网站建设</a></li>
+          </ul>
+        </li>
+        <li><a href="#">慢生活</a></li>
+      </ul>
+    </div>
+
+    <div class="paihang">
+
+    </div>
+    <div class="cloud">
+      <h2 class="hometitle">标签云</h2>
+      <ul>
+        <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">青春</a> <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">三星</a><a href="/">索尼</a> <a href="/">华维荣耀</a> <a href="/">三星</a> <a href="/">索尼</a>
+      </ul>
+    </div>
+    <div class="paihang">
+
+    </div>
+    <div class="weixin">
+      <h2 class="hometitle">官方微信</h2>
+      <ul>
+        <img src="images/wx.jpg">
+      </ul>
+    </div>
+  </div>
+</article>
+<footer>
+  <p>Design by <a href="/">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+</footer>
+<script src="js/nav.js"></script>
+</body>
+</html>
