@@ -10,9 +10,10 @@ import java.util.Date;
 @Component
 public class DateFormatTool {
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HHmmss");
+   private SimpleDateFormat simpleDateFormat;
 
-    public  String format(Date date) {
+    public   String format(Date date,String pattern) {
+        simpleDateFormat = new SimpleDateFormat(pattern);
         return  simpleDateFormat.format(date);
     }
 

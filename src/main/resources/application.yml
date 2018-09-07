@@ -5,6 +5,7 @@ spring:
     username: root
     password: root
     type: com.alibaba.druid.pool.xa.DruidXADataSource
+
   redis:
       open: true  # 是否开启redis缓存  true开启   false关闭
       database: 0
@@ -20,9 +21,6 @@ spring:
 
 
 
-
-
-
 mybatis:
   type-aliases-package: com.sushuzhuang.myblogs.domain
   mapperLocations: classpath:mapper/*.xml
@@ -30,3 +28,6 @@ mybatis:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
+
+classPath:
+  uploadImg: G:\\IdeaProjects\\myblogs\\src\\main\\resources\\templates\\images\\deatils

@@ -1,0 +1,105 @@
+.page-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px
+}
+
+
+#edit{
+    position: fixed;
+    top: 300px;
+    left: 10%;
+    z-index:50;
+}
+#preview{
+    position: fixed;
+    left: 10%;
+    top: 350px;
+    z-index:50;
+}
+
+#submit{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 50px;
+    z-index:50;
+}
+
+.tophead a{
+    color: black;
+    text-decoration:none;
+}
+.index-section-1 {
+    min-height: 500px;
+    height: auto;
+    margin-bottom: 60px;
+    position: relative
+}
+
+@media screen and (max-width: 1024px) {
+    .index-section-1 {
+
+        width: 96%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .index-section-1 {
+        width: 100%;
+        margin-bottom: 0
+    }
+}
+
+.index-section-1 .placeholder {
+    position: absolute;
+    top: 90px;
+    left: 95px;
+    display: none;
+    pointer-events: none;
+    z-index:0;
+}
+
+.index-section-1 .placeholder:before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 40px;
+    position: absolute;
+    left: -14px;
+    top: 3px
+}
+
+@media screen and (max-width: 767px) {
+    .index-section-1 .placeholder {
+        top: 140px;
+        left: 20px;
+        font-size: 24px;
+        width: 90%
+    }
+
+    .index-section-1 .placeholder:before {
+        top: 4px;
+        left: -6px;
+        height: 26px
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

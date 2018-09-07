@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>首页_苏树壮个人博客 - 一个站在web前端设计之路的技术员个人博客网站</title>
+  <meta name="keywords" content="个人博客,苏树壮个人博客,个人博客模板,苏树壮"/>
+  <meta name="description" content="苏树壮个人博客，是一个站在web前端设计之路的程序员个人网站"/><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/base.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<link href="css/m.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script>
+window.onload = function ()
+{
+	var oH2 = document.getElementsByTagName("h2")[0];
+	var oUl = document.getElementsByTagName("ul")[0];
+	oH2.onclick = function ()
+	{
+		var style = oUl.style;
+		style.display = style.display == "block" ? "none" : "block";
+		oH2.className = style.display == "block" ? "open" : ""
+	}
+}
+</script>
+  <!-- jquery, bootstrap -->
+  <script src="js/jquery.js"></script>
+  <link href="bootstrap/bootstrap.css" rel="stylesheet">
+  <script src="bootstrap/bootstrap.js"></script>
+
+  <!-- codemirror -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.min.css">
+  <link rel="stylesheet" type="text/css"
+        href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.min.css">
+  <script type="text/javascript" src="cloudflare/codemirror.min.js"></script>
+  <script type="text/javascript" src="cloudflare/xml.min.js"></script>
+  <script type="text/javascript" src="cloudflare/formatting.min.js"></script>
+
+  <!-- add summernote -->
+  <link href="summernote/summernote.css" rel="stylesheet">
+  <script src="summernote/summernote.js"></script>
+  <script src="summernote/summernote-zh-CN.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+      (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function () {
+              (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-42438082-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <link rel="stylesheet" href="css/main.css">
+    <style>
+        #header{
+            ! important;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+  <div class="tophead">
+   <div class="logo"><a href="/">苏树壮个人博客</a></div>
+    <div id="mnav">
+      <h2><span class="navicon"></span></h2>
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="edit-share.html">生活分享</a></li>
+        <li><a href="list.html">分享记录</a></li>
+        <li><a href="info.html">慢生活</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="index.html">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="edit-share.html">生活分享</a></li>
+        <li><a href="list.html">分享记录</a></li>
+        <li><a href="info.html">慢生活</a></li>
+        <li><a href="gbook.html">留言</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article id="header">
+  <h1 class="t_nav"><span>好咖啡要和朋友一起品尝，也要和同样喜欢它的人一起分享。 </span><a href="/" class="n1">网站首页</a><a href="/" class="n2">生活分享</a></h1>
+</article>
+
+    <button id="edit" class="btn btn-primary" onclick="edit()" type="button">编辑</button>
+    <button id="preview" class="btn btn-primary" onclick="preview()" type="button">预览</button>
+    <script>
+        var edit = function () {
+            $('.placeholder').summernote({focus: true});
+        };
+        var preview = function () {
+            var markup = $('.placeholder').summernote('code');
+            $('.placeholder').summernote('destroy');
+        };
+    </script>
+    <div class="page-container index-section-1">
+
+      <div id="summernote" class="placeholder">
+        hi,<br>
+        please, write text here!<br>
+      </div>
+      <button id="submit" class="btn btn-primary" onclick="submit()" type="button">预览</button>
+    </div>
+
+<footer id="this-footer">
+  <p>Design by <a href="/">苏树壮个人博客</a> <a href="/">鲁ICP备11002373号-1</a></p>
+</footer>
+<script type="text/javascript">
+
+        $(function () {
+            // index page card list
+            if ($('.card-list').length) {
+                var $cardArrow = $('.card-arrow');
+                var $cardListInner = $('.card-list-inner');
+
+                $cardListInner.scroll(function () {
+                    $cardArrow.addClass('disappear');
+                    if ($cardListInner.scrollLeft() < 20) {
+                        $cardArrow.removeClass('disappear');
+                    }
+                });
+            }
+
+            // main summernote with custom placeholder
+            var $placeholder = $('.placeholder');
+            $('#summernote').summernote({
+                height: 300,
+                callbacks: {
+                    onInit: function () {
+                        $placeholder.show();
+                    },
+                    onFocus: function () {
+                        $placeholder.hide();
+                    },
+                    onBlur: function () {
+                        var $self = $(this);
+                        setTimeout(function () {
+                            if ($self.summernote('isEmpty') && !$self.summernote('codeview.isActivated')) {
+                                $placeholder.show();
+                            }
+                        }, 300);
+                    },
+                    onImageUpload: function(files, editor, $editable) {
+                        sendFile(files[0],editor,$editable);
+                    }
+                },
+                codemirror: {
+                    mode: 'text/html',
+                    htmlMode: true,
+                    lineNumbers: true,
+                    theme: 'monokai'
+                }
+
+            });
+        });
+
+
+        function sendFile(file, editor, $editable) {
+            $(".note-toolbar.btn-toolbar").append('正在上传图片');
+            var filename = false;
+            try {
+                filename = file['name'];
+                //alert(filename);
+            } catch (e) {
+                filename = false;
+            }
+            if (!filename) {
+                $(".note-alarm").remove();
+            }
+            //以上防止在图片在编辑器内拖拽引发第二次上传导致的提示错误
+            var ext = filename.substr(filename.lastIndexOf("."));
+            ext = ext.toUpperCase();
+            var timestamp = new Date().getTime();
+            var name = timestamp + "_" + $("#summernote").attr('aid') + ext;
+            //name是文件名，自己随意定义，aid是我自己增加的属性用于区分文件用户
+            data = new FormData();
+            data.append("file", file);
+            data.append("key", name);
+            data.append("token", $("#summernote").attr('token'));
+
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "http://localhost:8080/img/upload/imgs", //图片上传出来的url，返回的是图片上传后的路径，http格式
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    //data是返回的hash,key之类的值，key是定义的文件名
+                    //alert(data);
+                    console.log("返回数据"+data);
+                    //把图片放到编辑框中。editor.insertImage 是参数，写死。后面的http是网上的图片资源路径。
+                    // 网上很多就是这一步出错。
+                    $('#summernote').summernote('editor.insertImage', data);
+
+                    $(".note-alarm").html("上传成功,请等待加载");
+                    setTimeout(function () {
+                        $(".note-alarm").remove();
+                    }, 3000);
+                },
+                error: function () {
+                    $(".note-alarm").html("上传失败");
+                    setTimeout(function () {
+                        $(".note-alarm").remove();
+                    }, 3000);
+                }
+            });
+        }
+
+    </script>
+<script src="js/nav.js"></script>
+</body>
+</html>

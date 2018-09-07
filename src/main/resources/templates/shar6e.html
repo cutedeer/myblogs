@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>summernote - bs3fa4</title>
+
+    <!-- jquery, bootstrap -->
+    <script src="js/jquery.js"></script>
+    <link href="bootstrap/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/bootstrap.js"></script>
+
+    <!-- codemirror -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.min.css">
+    <script type="text/javascript" src="cloudflare/codemirror.min.js"></script>
+    <script type="text/javascript" src="cloudflare/xml.min.js"></script>
+    <script type="text/javascript" src="cloudflare/formatting.min.js"></script>
+
+    <!-- add summernote -->
+    <link href="summernote/summernote.css" rel="stylesheet">
+    <script src="summernote/summernote.js"></script>
+    <script src="summernote/summernote-zh-CN.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-42438082-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        #blogsTitle {
+            align-content: center;
+            font-size: 25px;
+            /*font-style: ;*/
+        }
+
+        #blogsTitle input {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+        }
+        #blogsTitle-preview{
+            width: 100%;
+            min-height: 0;
+            height: auto;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+
+<button id="edit" class="btn btn-primary" onclick="edit()" type="button">编辑</button>
+<button id="preview" class="btn btn-primary" onclick="preview()" type="button">预览</button>
+<div class="page-container index-section-1">
+    <div id="blogsTitle">
+        <input placeholder="请输入标题" id="blogsTitle-input" name="title">
+        <div id="blogsTitle-preview">
+            <h1 id="blogsTitle-preview-h1"></h1>
+        </div>
+    </div>
+    <div id="summernote" class="placeholder">
+        hi,<br>
+        please, write text here!<br>
+        在这里填写内容
+    </div>
+</div>
+
+<script>
+    var edit = function () {
+        $('#blogsTitle-input').show();
+        $('#blogsTitle-preview-h1').empty();
+        $('.placeholder').summernote({focus: true});
+    };
+    var preview = function () {
+        var markup = $('.placeholder').summernote('code');
+        $('.placeholder').summernote('destroy');
+        var title = $("input#blogsTitle-input").val()
+        $('#blogsTitle-input').hide();
+        $('#blogsTitle-preview-h1').html(title);
+    };
+</script>
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">
+
+    $(function () {
+        // index page card list
+        if ($('.card-list').length) {
+            var $cardArrow = $('.card-arrow');
+            var $cardListInner = $('.card-list-inner');
+
+            $cardListInner.scroll(function () {
+                $cardArrow.addClass('disappear');
+                if ($cardListInner.scrollLeft() < 20) {
+                    $cardArrow.removeClass('disappear');
+                }
+            });
+        }
+
+        // main summernote with custom placeholder
+        var $placeholder = $('.placeholder');
+        $('#summernote').summernote({
+            height: 300,
+            callbacks: {
+                onInit: function () {
+                    $placeholder.show();
+                },
+                onFocus: function () {
+                    console.log("Focus")
+                    $placeholder.hide();
+                },
+                onBlur: function () {
+                    var $self = $(this);
+                    setTimeout(function () {
+                        if ($self.summernote('isEmpty') && !$self.summernote('codeview.isActivated')) {
+                            $placeholder.show();
+                        }
+                    }, 300);
+                },
+                onImageUpload: function (files, editor, $editable) {
+                    sendFile(files[0], editor, $editable);
+                }
+            },
+            codemirror: {
+                mode: 'text/html',
+                htmlMode: true,
+                lineNumbers: true,
+                theme: 'monokai'
+            }
+
+        });
+    });
+
+
+    function sendFile(file, editor, $editable) {
+        var filename = false;
+        try {
+            filename = file['name'];
+            //alert(filename);
+        } catch (e) {
+            filename = false;
+        }
+        if (!filename) {
+            $(".note-alarm").remove();
+        }
+        //以上防止在图片在编辑器内拖拽引发第二次上传导致的提示错误
+        var ext = filename.substr(filename.lastIndexOf("."));
+        ext = ext.toUpperCase();
+        var timestamp = new Date().getTime();
+        var name = returnCitySN['cip'] + returnCitySN['cname'];
+        alert(name);
+        //name是文件名，自己随意定义，aid是我自己增加的属性用于区分文件用户
+        data = new FormData();
+        data.append("file", file);
+        data.append("key", name);
+
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "http://localhost:8080/img/upload/imgs", //图片上传出来的url，返回的是图片上传后的路径，http格式
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                //data是返回的hash,key之类的值，key是定义的文件名
+                //alert(data);
+                console.log("返回数据" + data);
+                //把图片放到编辑框中。editor.insertImage 是参数，写死。后面的http是网上的图片资源路径。
+                // 网上很多就是这一步出错。
+                $('#summernote').summernote('editor.insertImage', data);
+
+                $(".note-alarm").html("上传成功,请等待加载");
+                setTimeout(function () {
+                    $(".note-alarm").remove();
+                }, 3000);
+            },
+            error: function () {
+                $(".note-alarm").html("上传失败");
+                setTimeout(function () {
+                    $(".note-alarm").remove();
+                }, 3000);
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>

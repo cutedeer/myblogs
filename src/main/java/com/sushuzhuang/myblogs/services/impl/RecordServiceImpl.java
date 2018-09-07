@@ -24,7 +24,7 @@ public class RecordServiceImpl implements RecordService {
         dateFormatTool=new  DateFormatTool();
         List<Record> recordList =  recordMapper.loadAll();
         for(Record record : recordList) {
-                record.setShowDate(dateFormatTool.format(record.getPublishDate()));
+                record.setShowDate(dateFormatTool.format(record.getPublishDate(),"yyyy-MM-dd HH:mm:ss"));
         }
         return  recordList;
     }

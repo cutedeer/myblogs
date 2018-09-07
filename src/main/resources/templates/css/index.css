@@ -1,4 +1,4 @@
- @charset "gb2312";
+ @charset "utf-8";
 .picshow { width: 100%; overflow: hidden; margin: 20px auto; }
 .picshow li { width: 20%; display: inline-block; float: left; overflow: hidden; position: relative; }
 .picshow li i { overflow: hidden; display: block; height: 400px; }
@@ -118,16 +118,16 @@ h3.blogtitle { line-height: 30px; height: 30px; margin: 10px 0; }
 .news_infos p { margin-bottom: 10px }
 .news_infos img { max-width: 650px; height: auto; }
 .share { padding: 20px; }
-.nextinfo { line-height: 24px; width: 100%; background: #FFF; border-radius: 10px; overflow: hidden; margin: 20px 0 }/*иор╩ф╙обр╩ф╙*/
+.nextinfo { line-height: 24px; width: 100%; background: #FFF; border-radius: 10px; overflow: hidden; margin: 20px 0 }/*О©╫О©╫р╩ф╙О©╫О©╫р╩ф╙*/
 .nextinfo p { padding: 4px 10px; border-radius: 5px; }
 .nextinfo a:hover { color: #000; text-decoration: underline }
-/*оЮ╧ьндуб*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫*/
 .otherlink, .xzsm, .ffsm { width: 100%; background: #FFF; border-radius: 10px; overflow: hidden; margin: 20px 0 }
 .otherlink h2 { border-bottom: #000 2px solid; line-height: 40px; font-size: 14px; background: url(../images/5794.png) left 10px center no-repeat; padding-left: 40px; color: #000 }
 .otherlink ul { margin: 10px 0 }
 .otherlink li { line-height: 24px; height: 24px; display: block; width: 290px; float: left; overflow: hidden; margin-right: 30px; padding-left: 10px; }
 .otherlink li a:hover { text-decoration: underline; color: #000 }
-/*ндубфюбш*/
+/*О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫*/
 .news_pl { margin: 10px 0; width: 100%; background: #FFF; border-radius: 10px; overflow: hidden; margin: 20px 0 }
 .news_pl h2 { background: url(../images/newsbg03.png) no-repeat left 10px center; border-bottom: #000 2px solid; line-height: 40px; font-size: 14px; padding-left: 30px; color: #000 }
 .xzsm ul, .ffsm ul { padding: 20px; line-height: 24px; border-top: 6px solid #a6b5c5; }
@@ -142,7 +142,7 @@ h3.blogtitle { line-height: 30px; height: 30px; margin: 10px 0; }
 .ab_con { line-height: 30px; padding: 10px; }
 .ab_con p { background: #f6f6f6; margin: 5px 0; padding-left: 10px; border-radius: 5px; text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px; }
 .ab_box .avatar { width: 100px; height: 100px; overflow: hidden; border-radius: 50px; margin: 10px auto 0; }
-..ab_box .avatar img { width: 100px; height: 100px }
+.ab_box .avatar img { width: 100px; height: 100px }
 .ab_box .news_infos { padding: 30px 0 }
 .meandblog { padding: 20px; border-radius: 10px; overflow: hidden; margin: 0 0 20px 0; }
 .meandblog li { background: #f1f1f1; line-height: 30px; margin: 5px 0; padding: 0 0 0 10px; border-radius: 10px; border-top: 2px solid #e2e2e2; text-shadow: #eae7e7 0px 0px 1px; }

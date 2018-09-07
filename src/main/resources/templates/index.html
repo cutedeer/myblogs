@@ -15,12 +15,10 @@
     <script src="js/modernizr.js"></script>
     <![endif]-->
     <script>
-        window.onload = function ()
-        {
+        window.onload = function () {
             var oH2 = document.getElementsByTagName("h2")[0];
             var oUl = document.getElementsByTagName("ul")[0];
-            oH2.onclick = function ()
-            {
+            oH2.onclick = function () {
                 var style = oUl.style;
                 style.display = style.display == "block" ? "none" : "block";
                 oH2.className = style.display == "block" ? "open" : ""
@@ -37,8 +35,8 @@
             <ul>
                 <li><a href="index.html">网站首页</a></li>
                 <li><a href="about.html">关于我</a></li>
-                <li><a href="#">朋友分享</a></li>
-                <li><a href="#">我的工作</a></li>
+                <li><a href="share.html">生活分享</a></li>
+                <li><a href="#">分享记录</a></li>
                 <li><a href="#">添加分享</a></li>
                 <li><a href="#">留言</a></li>
             </ul>
@@ -47,8 +45,8 @@
             <ul>
                 <li><a href="index.html">网站首页</a></li>
                 <li><a href="about.html">关于我</a></li>
-                <li><a href="#">朋友分享</a></li>
-                <li><a href="#">我的工作</a></li>
+                <li><a href="share.html">生活分享</a></li>
+                <li><a href="#">分享记录</a></li>
                 <li><a href="#">添加分享</a></li>
                 <li><a href="#">留言</a></li>
             </ul>
@@ -85,30 +83,35 @@
     </ul>
 </div>
 <article>
-<div class="blogs" id="blogs">
-    <li v-for="records in list">
-        <span class="blogpic"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)"><img :src="records.img"></a></span>
-        <h3 class="blogtitle"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">{{records.title}}</a></h3>
-        <div class="bloginfo">  <p>{{records.context}}</p></div>
-        <div class="autor"><span class="lm"><a href="javascript:void(0);" class="classname" >{{records.tag}}</a></span>
-            <span class="dtime">{{records.showDate}}</span>
-            <span class="viewnum">浏览（<a href="javascript:void(0);">{{records.readAmount}}</a>）</span>
-            <span class="readmore"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">阅读原文</a></span>
-        </div>
-    </li>
+    <div class="blogs" id="blogs">
+        <li v-for="records in list">
+            <span class="blogpic"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)"><img
+                    :src="records.img"></a></span>
+            <h3 class="blogtitle"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">{{records.title}}</a>
+            </h3>
+            <div class="bloginfo"><p>{{records.context}}</p></div>
+            <div class="autor"><span class="lm"><a href="javascript:void(0);"
+                                                   class="classname">{{records.tag}}</a></span>
+                <span class="dtime">{{records.showDate}}</span>
+                <span class="viewnum">浏览（<a href="javascript:void(0);">{{records.readAmount}}</a>）</span>
+                <span class="readmore"><a href="info.html" @click="increaseReadAmount(records.readAmount,records.id)">阅读原文</a></span>
+            </div>
+        </li>
+    </div>
 
-
-</div>
     <div class="sidebar">
         <div class="about">
-            <div class="avatar"> <img src="images/h-img.jpeg" alt=""> </div>
+            <div class="avatar"><img src="images/h-img.jpeg" alt=""></div>
             <p class="abname">dancesmile | 苏树壮</p>
             <p class="abposition">Web前端设计、java后台</p>
-            <div class="abtext"> 一个90后草根站长！15年入行。 </div>
+            <div class="abtext"> 一个90后草根站长！15年入行。</div>
         </div>
         <div class="search">
             <form action="" method="post" name="searchform" id="searchform">
-                <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+                <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字"
+                       style="color: rgb(153, 153, 153);"
+                       onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}"
+                       onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
                 <input name="show" value="title" type="hidden">
                 <input name="tempid" value="1" type="hidden">
                 <input name="tbname" value="news" type="hidden">
@@ -118,54 +121,58 @@
         <div class="cloud">
             <h2 class="hometitle">标签云</h2>
             <ul>
-                <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">诺基亚</a> <a href="/">青春</a> <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">腾讯qq</a><a href="/">小米</a> <a href="/">王者荣耀</a> <a href="/">华为</a> <a href="/">ali</a>
+                <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">诺基亚</a> <a href="/">青春</a>
+                <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">腾讯qq</a><a href="/">小米</a> <a href="/">王者荣耀</a>
+                   <a href="/">华为</a> <a href="/">ali</a>
             </ul>
         </div>
-        <script src="js/nav.js"></script>
-<script src="vue.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-    var v=new Vue({
-        el: '#blogs',
-        data: {
-            title: 2,
-            list: []
-        },
-        methods: {
-            showDetails: function () {
-                axios.get('http://localhost:8080/record/all',{})
-                    .then(function (response) {
-                        for(var i=0;i<response.data.length;i++){
-                            v.$set(v.list,i,response.data[i])
-                        }
-                    })
-                    .catch(function (response) {
-                        console.log(response);
-                    })
-                    .then(function () {
-                    });
+    </div>
+</article>
+    <script src="js/nav.js"></script>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var v = new Vue({
+            el: '#blogs',
+            data: {
+                title: 2,
+                list: []
             },
-            increaseReadAmount:function(amount,id) {
-                ++amount;
-                axios.post('http://localhost:8080/record/read/amount', {
-                    id: id,
-                    readAmount: amount
-                })
-                    .then(function (response) {
-                        console.log(response);
+            methods: {
+                showDetails: function () {
+                    axios.get('http://localhost:8080/record/all', {})
+                        .then(function (response) {
+                            for (var i = 0; i < response.data.length; i++) {
+                                v.$set(v.list, i, response.data[i])
+                            }
+                        })
+                        .catch(function (response) {
+                            console.log(response);
+                        })
+                        .then(function () {
+                        });
+                },
+                increaseReadAmount: function (amount, id) {
+                    ++amount;
+                    axios.post('http://localhost:8080/record/read/amount', {
+                        id: id,
+                        readAmount: amount
                     })
-                    .catch(function (error) {
-                        console.log(error);
-                    }).then(function () {
-                    console.log(amount);
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        }).then(function () {
+                        console.log(amount);
                     });
-            }
-        },
-        mounted: function () {
-            this.showDetails();
-        },
-    })
-</script>
+                }
+            },
+            mounted: function () {
+                this.showDetails();
+            },
+        })
+    </script>
 
 </body>
 </html>
