@@ -6,6 +6,7 @@ spring:
     password: root
     type: com.alibaba.druid.pool.xa.DruidXADataSource
 
+
   redis:
       open: true  # 是否开启redis缓存  true开启   false关闭
       database: 0
@@ -19,7 +20,12 @@ spring:
         max-idle: 10      # 连接池中的最大空闲连接
         min-idle: 5       # 连接池中的最小空闲连接    # 连接池中的最小空闲连接
 
-
+  thymeleaf:
+     cache: false
+     prefix: classpath:/templates/
+     suffix: .html
+     mode: LEGACYHTML5
+     encoding: UTF-8
 
 mybatis:
   type-aliases-package: com.sushuzhuang.myblogs.domain

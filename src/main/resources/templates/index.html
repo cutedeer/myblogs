@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>首页_苏树壮个人博客 - 一个站在web前端设计之路的技术员个人博客网站</title>
@@ -34,21 +34,21 @@
             <h2><span class="navicon"></span></h2>
             <ul>
                 <li><a href="index.html">网站首页</a></li>
-                <li><a href="about.html">关于我</a></li>
                 <li><a href="share.html">生活分享</a></li>
-                <li><a href="#">分享记录</a></li>
-                <li><a href="#">添加分享</a></li>
-                <li><a href="#">留言</a></li>
+                <li><a href="#">技术分享</a></li>
+                <li><a href="#">满上火</a></li>
+                <li><a href="gbook.html">留言</a></li>
+                <li><a href="about.html">关于我</a></li>
             </ul>
         </div>
         <nav class="topnav" id="topnav">
             <ul>
                 <li><a href="index.html">网站首页</a></li>
-                <li><a href="about.html">关于我</a></li>
                 <li><a href="share.html">生活分享</a></li>
-                <li><a href="#">分享记录</a></li>
-                <li><a href="#">添加分享</a></li>
-                <li><a href="#">留言</a></li>
+                <li><a href="#">技术分享</a></li>
+                <li><a href="#">添加享</a></li>
+                <li><a href="gbook.html">留言</a></li>
+                <li><a href="about.html">关于我</a></li>
             </ul>
         </nav>
     </div>
@@ -140,7 +140,7 @@
             },
             methods: {
                 showDetails: function () {
-                    axios.get('http://localhost:8080/record/all', {})
+                    axios.get('/record/all', {})
                         .then(function (response) {
                             for (var i = 0; i < response.data.length; i++) {
                                 v.$set(v.list, i, response.data[i])
@@ -154,7 +154,7 @@
                 },
                 increaseReadAmount: function (amount, id) {
                     ++amount;
-                    axios.post('http://localhost:8080/record/read/amount', {
+                    axios.post('/record/read/amount', {
                         id: id,
                         readAmount: amount
                     })

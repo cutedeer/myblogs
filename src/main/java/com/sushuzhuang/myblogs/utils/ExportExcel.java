@@ -165,7 +165,7 @@ public class ExportExcel {
     public static void main(String[] args) {
         DateFormatTool dateFormatTool = new DateFormatTool();
         String sheetTitle = "用户信息";
-        String name = sheetTitle + dateFormatTool.format(new Date());
+        String name = sheetTitle + dateFormatTool.format(new Date(),"");
         String[] title = {"sequence", "name", "age"};
 
         List<Object> list = new ArrayList<Object>();
